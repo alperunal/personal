@@ -1,11 +1,44 @@
 ---
 import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = 'Alper Unal';
+const description = 'Personal notes about software development and other things I care about.';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+    <title>{title}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <link rel="canonical" href="https://alperunal.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter:ital,wght@0,300;0,600;1,300;1,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+	<body>
+		<main>
+			<Welcome />
+		</main>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: 'Inter', sans-serif;
+		background-color: #F6FCF4;
+	}
+</style>
