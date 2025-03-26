@@ -1,44 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
-
-const title = 'Alper Unal';
-const description = 'Personal notes about software development and other things I care about.';
+import { GLOBAL } from "../lib/variables";
+import Layout from "../layouts/Default.astro";
+import Welcome from "../components/Welcome.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-    <title>{title}</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="color-scheme" content="light only" />
-    <meta name="description" content={description} />
-		<meta name="generator" content={Astro.generator} />
-    <meta property="og:site_name" content={title} />
-    <meta property="og:title" content={title} />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content={description} />
-    <link rel="canonical" href="https://alperunal.com/" />
-    <link
-      href="https://fonts.googleapis.com/css2?display=swap&family=Inter:ital,wght@0,300;0,600;1,300;1,600"
-      rel="stylesheet"
-      type="text/css"
+<Layout>
+  <Fragment slot="head">
+    <title>{GLOBAL.username} • {GLOBAL.shortDescription}</title>
+    <meta
+      name="description"
+      content={GLOBAL.longDescription}
     />
-  </head>
-	<body>
-		<main>
-			<Welcome />
-		</main>
-	</body>
-</html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		font-family: 'Inter', sans-serif;
-		background-color: #F6FCF4;
-	}
-</style>
+    <meta
+      property="og:title"
+      content={`${GLOBAL.username} • ${GLOBAL.shortDescription}`}
+    />
+    <meta
+      property="og:description"
+      content={GLOBAL.longDescription}
+    />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/avatar.png`} /> 
+    <meta property="og:url" content={GLOBAL.rootUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content={`${GLOBAL.username} • ${GLOBAL.shortDescription}`}
+    />
+    <meta
+      name="twitter:description"
+      content={GLOBAL.longDescription}
+    />
+    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/avatar.png`} />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="language" content="English" />
+    <link rel="canonical" href={GLOBAL.rootUrl} />
+  </Fragment>
+	<Welcome />
+</Layout>
